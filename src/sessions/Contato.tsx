@@ -82,7 +82,7 @@ const Contato = () => {
         {
             id: "behance",
             icon: <FaBehance />,
-            url: "https://www.behance.net/rickreis1",
+            url: "https://www.behance.net/rickreisav",
             color: "behance",
             alt: "Behance",
             visibleOn: ["home", "audiovisual"],

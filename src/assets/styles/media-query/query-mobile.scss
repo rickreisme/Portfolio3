@@ -148,6 +148,53 @@
             }
         }
     }
+
+    /* Mobile: stack project grid and always show overlay for easier access */
+    .project-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px;
+    }
+
+    .grid-image {
+        min-height: 220px !important;
+        border-radius: 18px !important;
+    }
+
+    .grid-hover {
+        opacity: 1 !important;
+        background: rgba(0, 0, 0, 0.6) !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 18px !important;
+    }
+
+    .grid-hover h3 {
+        font-size: 1.35rem !important;
+    }
+
+    /* Modal fixes for small viewports (360px and similar) */
+    .project-detail-modal {
+        align-items: flex-start;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .project-detail-content {
+        max-height: calc(100vh - 32px) !important;
+        width: calc(100% - 24px) !important;
+        margin: 0 auto !important;
+        overflow: auto !important;
+        padding: 12px !important;
+        border-radius: 12px !important;
+    }
+
+    .project-detail-content .box-projeto {
+        height: auto !important;
+        min-height: unset !important;
+        max-height: none !important;
+        padding: 0 !important;
+    }
+
     .menu,
     .content,
     .sobre,

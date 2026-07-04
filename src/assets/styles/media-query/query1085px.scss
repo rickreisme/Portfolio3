@@ -211,6 +211,33 @@
                 }
             }
         }
+
+        /* Responsive adjustments for project grid */
+        .project-grid {
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(200px, 1fr)
+            );
+            gap: 18px;
+        }
+
+        .project-grid-item {
+            width: 100%;
+        }
+
+        .grid-image {
+            min-height: 180px;
+            border-radius: 20px;
+        }
+
+        .grid-hover h3 {
+            font-size: 1.4rem;
+        }
+
+        .grid-hover p {
+            font-size: 0.95rem;
+            max-height: 3.6rem;
+        }
     }
 
     .contato {

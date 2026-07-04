@@ -56,26 +56,28 @@ const BoxProjetoAudiovisual: React.FC<BoxProjetoProps> = ({
                 )}
 
                 <div className="detalhes-projeto">
-                    <h2 className="nome-projeto">
-                        {titulo}
-                    </h2>
-                    <p>{descricao}</p>
-                    <div className="btns-projeto">
-                        {videoUrl && (
-                            <a
-                                className="btn-link-site"
-                                href={videoUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <RiExternalLinkFill className="link-icon" />
-                                {currentLng !== "pt"
-                                    ? "Watch on YouTube"
-                                    : "Ver no YouTube"}
-                            </a>
-                        )}
+                    <div className="info-projeto">
+                        <h2 className="nome-projeto">
+                            {titulo}
+                        </h2>
+                        <p>{descricao}</p>
+                        <div className="btns-projeto">
+                            {videoUrl && (
+                                <a
+                                    className="btn-link-site"
+                                    href={videoUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <RiExternalLinkFill className="link-icon" />
+                                    {currentLng !== "pt"
+                                        ? "Watch on YouTube"
+                                        : "Ver no YouTube"}
+                                </a>
+                            )}
+                        </div>
+                        <h4>{tecnologias}</h4>
                     </div>
-                    <h4>{tecnologias}</h4>
                 </div>
             </motion.div>
             {videoUrl && (

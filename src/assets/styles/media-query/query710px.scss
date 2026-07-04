@@ -136,6 +136,22 @@
                 }
             }
         }
+
+        /* Make project grid single-column on smaller screens */
+        .project-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+            padding-bottom: 20px;
+        }
+
+        .grid-image {
+            min-height: 200px;
+            border-radius: 20px;
+        }
+
+        .grid-hover h3 {
+            font-size: 1.45rem !important;
+        }
     }
 
     .experiencia {

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import "../../assets/styles/habilidades-projetos.scss";
@@ -15,8 +16,176 @@ import mulheresFibra from "../../assets/imagens/mulheresDeFibrajpg.jpg";
 import ibiLogo from "../../assets/imagens/ibi.png";
 import grupoNicnet from "../../assets/imagens/grupoNicnet.jpg";
 
+interface ProjectData {
+    imagem: string;
+    videoUrl: string;
+    titulo: string;
+    descricao: string;
+    tecnologias: string;
+    isVideoVertical: boolean;
+}
+
 const ProjetosAudiovisual = () => {
     const { t } = useTranslation();
+    const [selectedProject, setSelectedProject] =
+        useState<ProjectData | null>(null);
+
+    const projetos: ProjectData[] = [
+        {
+            imagem: mulheresFibra,
+            videoUrl:
+                "https://www.youtube.com/watch?v=LVmWN4tQHqo",
+            titulo: t("projects.mulheresNicnet.title"),
+            descricao: t(
+                "projects.mulheresNicnet.description",
+            ),
+            tecnologias:
+                t("projects.tags.videoEditing") +
+                " - " +
+                "Motion Graphics" +
+                " - " +
+                "Adobe Premiere" +
+                " - " +
+                "Adobe After Effects",
+            isVideoVertical: false,
+        },
+        {
+            imagem: grupoNicnet,
+            videoUrl:
+                "https://www.youtube.com/watch?v=zQpzY8lM6Zw",
+            titulo: t("projects.grupoNicnet.title"),
+            descricao: t(
+                "projects.grupoNicnet.description",
+            ),
+            tecnologias:
+                "Motion Graphics" +
+                " - " +
+                "Adobe After Effects" +
+                " - " +
+                "Logo Reveal" +
+                " - " +
+                "3D Animation",
+            isVideoVertical: false,
+        },
+        {
+            imagem: ibiLogo,
+            videoUrl:
+                "https://www.youtube.com/watch?v=lATSMNC58as",
+            titulo: t("projects.ibiLogo.title"),
+            descricao: t("projects.ibiLogo.description"),
+            tecnologias:
+                "Motion Graphics" +
+                " - " +
+                "Adobe After Effects" +
+                " - " +
+                "Logo Reveal",
+            isVideoVertical: false,
+        },
+        {
+            imagem: rio,
+            videoUrl:
+                "https://www.youtube.com/watch?v=LsOkxqUQFsg",
+            titulo: t("projects.rio2025.title"),
+            descricao: t("projects.rio2025.description"),
+            tecnologias:
+                t("projects.tags.travelVlog") +
+                " - " +
+                t("projects.tags.videoEditing") +
+                " - " +
+                "Adobe Premiere",
+            isVideoVertical: false,
+        },
+        {
+            imagem: introAP,
+            videoUrl:
+                "https://www.youtube.com/watch?v=Ots8SDvPsc8",
+            titulo: t("projects.introAP.title"),
+            descricao: t("projects.introAP.description"),
+            tecnologias:
+                t("projects.tags.intro") +
+                " - " +
+                t("projects.tags.motionGraphics") +
+                " - " +
+                t("projects.tags.videoEditing") +
+                " - " +
+                "Kdenlive",
+            isVideoVertical: false,
+        },
+        {
+            imagem: gemeos,
+            videoUrl: normalizeYoutubeUrl(
+                "https://youtube.com/shorts/04lpdQqdJcA?si=lqvXdOEwJEGm3PEt",
+            ),
+            titulo: t("projects.gemeos2025.title"),
+            descricao: t("projects.gemeos2025.description"),
+            tecnologias:
+                t("projects.tags.videoEditing") +
+                " - " +
+                t("projects.tags.cinematic") +
+                " - " +
+                t("projects.tags.birthdayFilm") +
+                " - " +
+                "Kdenlive" +
+                " - " +
+                "Microsoft Clipchamp",
+            isVideoVertical: true,
+        },
+        {
+            imagem: seashore,
+            videoUrl:
+                "https://www.youtube.com/watch?v=yEevkBzwt8c",
+            titulo: t("projects.vlogSeashore.title"),
+            descricao: t(
+                "projects.vlogSeashore.description",
+            ),
+            tecnologias:
+                t("projects.tags.travelVlog") +
+                " - " +
+                t("projects.tags.videoEditing") +
+                " - " +
+                "HitFilm Express",
+            isVideoVertical: false,
+        },
+        {
+            imagem: cravinhosNatal,
+            videoUrl:
+                "https://youtube.com/shorts/zP-0ken1cqg?si=QmYclXZq3WlwbVrY",
+            titulo: t("projects.natalCravinhos2025.title"),
+            descricao: t(
+                "projects.natalCravinhos2025.description",
+            ),
+            tecnologias:
+                t("projects.tags.videoEditing") +
+                " - " +
+                t("projects.tags.cinematic") +
+                " - " +
+                t("projects.tags.cityFilm") +
+                " - " +
+                "Kdenlive" +
+                " - " +
+                "Microsoft Clipchamp",
+            isVideoVertical: true,
+        },
+        {
+            imagem: titanic,
+            videoUrl:
+                "https://www.youtube.com/watch?v=rQaELZsSNr0",
+            titulo: t("projects.titanicAnimation.title"),
+            descricao: t(
+                "projects.titanicAnimation.description",
+            ),
+            tecnologias:
+                t("projects.tags.animation") +
+                " - " +
+                t("projects.tags.videoEditing") +
+                " - " +
+                "Cinema 4D" +
+                " - " +
+                "Adobe Premiere",
+            isVideoVertical: false,
+        },
+    ];
+
     return (
         <div className="meus-projetos" id="meus-projetos">
             <h2 id="projeto-titulo">
@@ -52,190 +221,80 @@ const ProjetosAudiovisual = () => {
 
             <h3>{t("projects.allProjects")}</h3>
 
-            <div className="projetos" id="projetos">
-                <BoxProjetoAudiovisual
-                    imagem={mulheresFibra}
-                    videoUrl="https://www.youtube.com/watch?v=LVmWN4tQHqo"
-                    titulo={t(
-                        "projects.mulheresNicnet.title",
-                    )}
-                    descricao={t(
-                        "projects.mulheresNicnet.description",
-                    )}
-                    tecnologias={
-                        t("projects.tags.videoEditing") +
-                        " - " +
-                        "Motion Graphics" +
-                        " - " +
-                        "Adobe Premiere" +
-                        " - " +
-                        "Adobe After Effects"
-                    }
-                    isVideoVertical={false}
-                />
-
-                <BoxProjetoAudiovisual
-                    imagem={grupoNicnet}
-                    videoUrl="https://www.youtube.com/watch?v=zQpzY8lM6Zw"
-                    titulo={t("projects.grupoNicnet.title")}
-                    descricao={t(
-                        "projects.grupoNicnet.description",
-                    )}
-                    tecnologias={
-                        "Motion Graphics" +
-                        " - " +
-                        "Adobe After Effects" +
-                        " - " +
-                        "Logo Reveal" +
-                        " - " +
-                        "3D Animation"
-                    }
-                    isVideoVertical={false}
-                />
-
-                <BoxProjetoAudiovisual
-                    imagem={ibiLogo}
-                    videoUrl="https://www.youtube.com/watch?v=lATSMNC58as"
-                    titulo={t("projects.ibiLogo.title")}
-                    descricao={t(
-                        "projects.ibiLogo.description",
-                    )}
-                    tecnologias={
-                        "Motion Graphics" +
-                        " - " +
-                        "Adobe After Effects" +
-                        " - " +
-                        "Logo Reveal"
-                    }
-                    isVideoVertical={false}
-                />
-
-                <BoxProjetoAudiovisual
-                    imagem={rio}
-                    videoUrl="https://www.youtube.com/watch?v=LsOkxqUQFsg"
-                    titulo={t("projects.rio2025.title")}
-                    descricao={t(
-                        "projects.rio2025.description",
-                    )}
-                    tecnologias={
-                        t("projects.tags.travelVlog") +
-                        " - " +
-                        t("projects.tags.videoEditing") +
-                        " - " +
-                        "Adobe Premiere"
-                    }
-                    isVideoVertical={false}
-                />
-
-                <BoxProjetoAudiovisual
-                    imagem={introAP}
-                    videoUrl={
-                        "https://www.youtube.com/watch?v=Ots8SDvPsc8"
-                    }
-                    titulo={t("projects.introAP.title")}
-                    descricao={t(
-                        "projects.introAP.description",
-                    )}
-                    tecnologias={
-                        t("projects.tags.intro") +
-                        " - " +
-                        t("projects.tags.motionGraphics") +
-                        " - " +
-                        t("projects.tags.videoEditing") +
-                        " - " +
-                        "Kdenlive"
-                    }
-                    isVideoVertical={false}
-                />
-
-                <BoxProjetoAudiovisual
-                    imagem={gemeos}
-                    videoUrl={normalizeYoutubeUrl(
-                        "https://youtube.com/shorts/04lpdQqdJcA?si=lqvXdOEwJEGm3PEt",
-                    )}
-                    titulo={t("projects.gemeos2025.title")}
-                    descricao={t(
-                        "projects.gemeos2025.description",
-                    )}
-                    tecnologias={
-                        t("projects.tags.videoEditing") +
-                        " - " +
-                        t("projects.tags.cinematic") +
-                        " - " +
-                        t("projects.tags.birthdayFilm") +
-                        " - " +
-                        "Kdenlive" +
-                        " - " +
-                        "Microsoft Clipchamp"
-                    }
-                    isVideoVertical={true}
-                />
-
-                <BoxProjetoAudiovisual
-                    imagem={seashore}
-                    videoUrl="https://www.youtube.com/watch?v=yEevkBzwt8c"
-                    titulo={t(
-                        "projects.vlogSeashore.title",
-                    )}
-                    descricao={t(
-                        "projects.vlogSeashore.description",
-                    )}
-                    tecnologias={
-                        t("projects.tags.travelVlog") +
-                        " - " +
-                        t("projects.tags.videoEditing") +
-                        " - " +
-                        "HitFilm Express"
-                    }
-                    isVideoVertical={false}
-                />
-
-                <BoxProjetoAudiovisual
-                    imagem={cravinhosNatal}
-                    videoUrl={
-                        "https://youtube.com/shorts/zP-0ken1cqg?si=QmYclXZq3WlwbVrY"
-                    }
-                    titulo={t(
-                        "projects.natalCravinhos2025.title",
-                    )}
-                    descricao={t(
-                        "projects.natalCravinhos2025.description",
-                    )}
-                    tecnologias={
-                        t("projects.tags.videoEditing") +
-                        " - " +
-                        t("projects.tags.cinematic") +
-                        " - " +
-                        t("projects.tags.cityFilm") +
-                        " - " +
-                        "Kdenlive" +
-                        " - " +
-                        "Microsoft Clipchamp"
-                    }
-                    isVideoVertical={true}
-                />
-
-                <BoxProjetoAudiovisual
-                    imagem={titanic}
-                    videoUrl="https://www.youtube.com/watch?v=rQaELZsSNr0"
-                    titulo={t(
-                        "projects.titanicAnimation.title",
-                    )}
-                    descricao={t(
-                        "projects.titanicAnimation.description",
-                    )}
-                    tecnologias={
-                        t("projects.tags.animation") +
-                        " - " +
-                        t("projects.tags.videoEditing") +
-                        " - " +
-                        "Cinema 4D" +
-                        " - " +
-                        "Adobe Premiere"
-                    }
-                    isVideoVertical={false}
-                />
+            <div className="project-grid" id="projetos">
+                {projetos.map((projeto, index) => (
+                    <button
+                        type="button"
+                        key={index}
+                        className="project-grid-item"
+                        onClick={() =>
+                            setSelectedProject(projeto)
+                        }
+                    >
+                        <div
+                            className="grid-image"
+                            style={{
+                                backgroundImage: `url(${projeto.imagem})`,
+                            }}
+                        >
+                            {projeto.videoUrl && (
+                                <span className="grid-play-icon">
+                                    &#9658;
+                                </span>
+                            )}
+                            <div className="grid-hover">
+                                <h3>{projeto.titulo}</h3>
+                                <p>{projeto.tecnologias}</p>
+                            </div>
+                        </div>
+                    </button>
+                ))}
             </div>
+
+            {selectedProject && (
+                <div
+                    className="project-detail-modal"
+                    onClick={() => setSelectedProject(null)}
+                >
+                    <div
+                        className="project-detail-content"
+                        onClick={(event) =>
+                            event.stopPropagation()
+                        }
+                    >
+                        <button
+                            type="button"
+                            className="project-detail-close"
+                            onClick={() =>
+                                setSelectedProject(null)
+                            }
+                            aria-label={
+                                t(
+                                    "projects.closeProject",
+                                ) || "Fechar projeto"
+                            }
+                        >
+                            ×
+                        </button>
+                        <BoxProjetoAudiovisual
+                            imagem={selectedProject.imagem}
+                            videoUrl={
+                                selectedProject.videoUrl
+                            }
+                            titulo={selectedProject.titulo}
+                            descricao={
+                                selectedProject.descricao
+                            }
+                            tecnologias={
+                                selectedProject.tecnologias
+                            }
+                            isVideoVertical={
+                                selectedProject.isVideoVertical
+                            }
+                        />
+                    </div>
+                </div>
+            )}
 
             <a
                 className="btn5"

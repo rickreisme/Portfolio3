@@ -13,6 +13,7 @@ import cravinhosNatal from "../../assets/imagens/cravinhosNatal.png";
 import introAP from "../../assets/imagens/introAP.png";
 import mulheresFibra from "../../assets/imagens/mulheresDeFibrajpg.jpg";
 import ibiLogo from "../../assets/imagens/ibi.png";
+import grupoNicnet from "../../assets/imagens/grupoNicnet.jpg";
 
 const ProjetosAudiovisual = () => {
     const { t } = useTranslation();
@@ -69,6 +70,25 @@ const ProjetosAudiovisual = () => {
                         "Adobe Premiere" +
                         " - " +
                         "Adobe After Effects"
+                    }
+                    isVideoVertical={false}
+                />
+
+                <BoxProjetoAudiovisual
+                    imagem={grupoNicnet}
+                    videoUrl="https://www.youtube.com/watch?v=zQpzY8lM6Zw"
+                    titulo={t("projects.grupoNicnet.title")}
+                    descricao={t(
+                        "projects.grupoNicnet.description",
+                    )}
+                    tecnologias={
+                        "Motion Graphics" +
+                        " - " +
+                        "Adobe After Effects" +
+                        " - " +
+                        "Logo Reveal" +
+                        " - " +
+                        "3D Animation"
                     }
                     isVideoVertical={false}
                 />

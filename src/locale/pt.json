@@ -250,12 +250,16 @@
         "description": "Intro feita para o canal no Youtube 'Arcabouço da Programação' com motion graphics e edição."
       },
       "mulheresNicnet": {
-        "title": "Mulheres de Fibra Nicnet - 2026",
+        "title": "Mulheres de Fibra 2026 - Nicnet",
         "description": "Vídeo especial produzido para a Nicnet para o Dia Internacional da Mulher de 2026"
       },
       "ibiLogo": {
         "title": "Ibi - Logo Reveal",
         "description": "Motion graphic de logo reveal feito para a Ibi Telecom."
+      },
+      "grupoNicnet": {
+        "title": "Grupo Nicnet - Logo Animation",
+        "description": "Motion graphic de logo reveal feito para o Grupo Nicnet."
       }
     },
     "contact": {

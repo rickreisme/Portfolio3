@@ -15,6 +15,7 @@ import introAP from "../../assets/imagens/introAP.png";
 import mulheresFibra from "../../assets/imagens/mulheresDeFibrajpg.jpg";
 import ibiLogo from "../../assets/imagens/ibi.png";
 import grupoNicnet from "../../assets/imagens/grupoNicnet.jpg";
+import rib170 from "../../assets/imagens/ribeirao170.jpg"
 
 interface ProjectData {
     imagem: string;
@@ -79,6 +80,22 @@ const ProjetosAudiovisual = () => {
                 "Adobe After Effects" +
                 " - " +
                 "Logo Reveal",
+            isVideoVertical: false,
+        },
+        {
+            imagem: rib170,
+            videoUrl:
+                "https://www.youtube.com/watch?v=sjuzn5re97Y",
+            titulo: t("projects.rib170.title"),
+            descricao: t("projects.rib170.description"),
+            tecnologias:
+                t("projects.tags.videoEditing") +
+                " - " +
+                "Adobe Premiere" +
+                " - " +
+                "Motion Graphics" +
+                " - " +
+                "Adobe After Effects",
             isVideoVertical: false,
         },
         {
